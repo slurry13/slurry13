@@ -1,0 +1,37 @@
+name: ASCII profile card
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  card:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: hu553in/ascii-profile-card@v1
+        with:
+          config: |
+            card:
+              lines:
+                - { type: header, text: 'slurry' }
+                - { type: kv, key: Role, value: 'programmer' }
+                - { type: kv, key: Uptime, value: {uptime} }
+                - { type: section, title: 'stack'}
+                - type: kv
+                  key: Programming_Languages
+                  value: |-
+                    C++, C, ASM, JS, Python
+                - type: kv
+                  key: Additional_Tools
+                  value: |-
+                    Bash, Git, Linux
