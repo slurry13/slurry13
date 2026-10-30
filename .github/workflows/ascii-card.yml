@@ -22,8 +22,8 @@ jobs:
         with:
           config: |
             card:
+              uptimeStart: '2021-11-05T19:54:46Z'
               lines:
-                uptimeStart: '2021-11-05T19:54:46Z'
                 - { type: header, text: 'slurry' }
                 - { type: kv, key: Role, value: 'programmer' }
                 - { type: kv, key: Registration, value: '{uptime}' }
