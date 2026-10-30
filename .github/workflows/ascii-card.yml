@@ -40,7 +40,7 @@ jobs:
                 - type: kv
                   key: languages
                   value: |-
-                    c++, c, asm, python, js
+                    c++, c, nasm, python, js
                 - { type: kv, key: backend, value: "fastapi/python" }
                 - { type: kv, key: frontend, value: "html, css, js" }
                 - { type: kv, key: data, value: "sqlite, postgresql" }
