@@ -57,3 +57,22 @@ jobs:
                 - { type: kv, key: contributions, value: "{contributions} (all time)" }
                 - { type: kv, key: lines of code, value: "{loc} ({locAdded}, {locDeleted})" }
                 - { type: kv, key: top languages, value: "{topLanguages}" }
+
+snake:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+      - uses: peaceiris/actions-gh-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target_branch: snake-output
+          build_dir: dist
