@@ -1,50 +1,37 @@
-name: Generate ASCII Profile Card
+name: ASCII profile card
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 4 * * *'
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  card:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate Card
-        uses: hu553in/ascii-profile-card@main
+      - uses: hu553in/ascii-profile-card@v1
         with:
-          branch: output
           config: |
-            charWidthPx: 8.4
-            rowHeightPx: 17
-            fontFamily: "Courier New, monospace"
-            themes:
-              dark:
-                backgroundColor: "#0d1117"
-                textColor: "#c9d1d9"
-                primaryColor: "#58a6ff"
-              light:
-                backgroundColor: "#ffffff"
-                textColor: "#24292f"
-                primaryColor: "#0969da"
-            lines:
-              - type: header
-                text: "slurry13"
-              - type: kv
-                key: "OS"
-                value: "Linux / Windows"
-              - type: kv
-                key: "Languages"
-                value: "{topLanguages}"
-              - type: kv
-                key: "Total Stars"
-                value: "{stars}"
-              - type: blank
-              - type: section
-                title: "Stats"
-              - type: kv
-                key: "Contributions"
-                value: "{contributions}"
+            card:
+              lines:
+                - { type: header, text: 'Your Name' }
+                - { type: kv, key: Role, value: 'What you do' }
+                - { type: section, title: 'GitHub stats' }
+                - { type: kv, key: Stars, value: '{stars}' }
+                - type: kv
+                  key: Programming_Languages
+                  value: |-
+                    C++, C, ASM, JS, Python
+                - type: kv
+                  key: Additional_Tools
+                  value: |-
+                    Bash, Git, Linux
