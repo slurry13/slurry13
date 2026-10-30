@@ -23,10 +23,10 @@ jobs:
           config: |
             card:
               lines:
-                - { type: header, text: 'Your Name' }
-                - { type: kv, key: Role, value: 'What you do' }
-                - { type: section, title: 'GitHub stats' }
-                - { type: kv, key: Stars, value: '{stars}' }
+                - { type: header, text: 'slurry' }
+                - { type: kv, key: Role, value: 'programmer' }
+                - { type: kv, key: Uptime, value: {uptime} }
+                - { type: section, title: 'stack'}
                 - type: kv
                   key: Programming_Languages
                   value: |-
