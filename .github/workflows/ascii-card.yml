@@ -25,7 +25,7 @@ jobs:
               lines:
                 - { type: header, text: 'slurry' }
                 - { type: kv, key: Role, value: 'programmer' }
-                - { type: kv, key: Uptime, value: {uptime} }
+                - { type: kv, key: Uptime, value: '{uptime}' }
                 - { type: section, title: 'stack'}
                 - type: kv
                   key: Programming_Languages
