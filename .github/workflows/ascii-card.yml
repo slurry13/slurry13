@@ -47,7 +47,7 @@ jobs:
                 - { type: kv, key: addition, value: "linux, git, bash" }
                 - { type: blank }
                 - { type: section, title: "contact" }
-                - { type: kv, key: email, value: "matvei@gmail.com" }
+                - { type: kv, key: email, value: "matvei0972@gmail.com" }
                 - { type: kv, key: telegram, value: "t.me/holygear" }
                 - { type: blank }
                 - { type: section, title: "github stats" }
