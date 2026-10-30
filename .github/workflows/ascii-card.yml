@@ -43,7 +43,7 @@ jobs:
                     c++, c, nasm, python, js
                 - { type: kv, key: backend, value: "fastapi/python" }
                 - { type: kv, key: frontend, value: "html, css, js" }
-                - { type: kv, key: data, value: "sqlite, postgresql" }
+                - { type: kv, key: data, value: "sqlite3, postgresql" }
                 - { type: kv, key: addition, value: "linux, git, bash" }
                 - { type: blank }
                 - { type: section, title: "contact" }
