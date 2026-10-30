@@ -1,0 +1,55 @@
+name: Generate ASCII Profile Card
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Важно для записи в ветку вывода
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Card
+        uses: hu553in/ascii-profile-card@main
+        with:
+          branch: output 
+          config: |
+            # Минимальные настройки шрифта и сетки
+            charWidthPx: 8.4
+            rowHeightPx: 17
+            fontFamily: 'Courier New, monospace'
+            
+            # Темы оформления (можно настроить цвета)
+            themes:
+              dark:
+                backgroundColor: '#0d1117'
+                textColor: '#c9d1d9'
+                primaryColor: '#58a6ff'
+              light:
+                backgroundColor: '#ffffff'
+                textColor: '#24292f'
+                primaryColor: '#0969da'
+            
+            # Структура вашей карточки
+            lines:
+              - type: header
+                text: "slurry13"
+              - type: kv
+                key: "OS"
+                value: "Windows"
+              - type: kv
+                key: "Languages"
+                value: "C++, Python, ASM, JS"
+              - type: kv
+                key: "Total Stars"
+                value: "{stars}"
+              - type: blank
+              - type: section
+                title: "Статистика"
+              - type: kv
+                key: "Contributions"
+                value: "{contributions}"
