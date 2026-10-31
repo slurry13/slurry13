@@ -31,6 +31,7 @@ jobs:
                 - { type: kv, key: role, value: "-" }
                 - { type: kv, key: work, value: "-" }
                 - { type: kv, key: product, value: "-" }
+                - { type: kv, key: team, value: "auraborus" }
                 - { type: kv, key: uptime, value: "{uptime} in the industry" }
                 - { type: blank }
                 - { type: kv, key: interests, value: "hardware, software, reverse" }
