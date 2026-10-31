@@ -29,6 +29,7 @@ jobs:
               lines:
                 - { type: header, text: "slurry13" }
                 - { type: kv, key: team, value: "auraborus" }
+                - { type: blank }
                 - { type: kv, key: role, value: "-" }
                 - { type: kv, key: work, value: "-" }
                 - { type: kv, key: product, value: "-" }
@@ -36,6 +37,7 @@ jobs:
                 - { type: blank }
                 - { type: kv, key: interests, value: "hardware, software, reverse" }
                 - { type: kv, key: languages, value: "ru, en" }
+                - { type: blank }
                 - { type: section, title: "skills" }
                 - type: kv
                   key: languages
